@@ -5,6 +5,8 @@ the contents of the bare repository if the `dest` directory does not exist. It
 works fine when both the `separate_git_dir` and the `dest` directories do not
 exist, or when both already exist.
 
+Issue: https://github.com/ansible/ansible/issues/52026
+
 ## Requirements
 
 * [Vagrant](https://www.vagrantup.com/) 2.2.3
