@@ -10,6 +10,7 @@ Issue: https://github.com/ansible/ansible/issues/52026
 ## Requirements
 
 * [Vagrant](https://www.vagrantup.com/) 2.2.3
+  * [VirtualBox](https://www.virtualbox.org/) (or other provider supported by Vagrant)
 * [Ansible](https://www.ansible.com/) 2.7.6
 
 ## Usage
