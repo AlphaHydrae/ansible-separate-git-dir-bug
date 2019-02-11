@@ -1,0 +1,32 @@
+---
+- hosts: all
+  become: true
+  gather_facts: no
+
+  tasks:
+
+    # Install Python (not present on Ubuntu Bionic 18.04 by default).
+    - raw: command -v python || { apt-get update && apt-get install -y python; }
+      changed_when: false
+
+    # Gather facts.
+    - setup:
+
+    - block:
+
+        # Clone ansible into a bare repository and checkout in a separate directory.
+        - git:
+            repo: https://github.com/ansible/ansible.git
+            dest: /tmp/checkout
+            #force: true
+            separate_git_dir: /tmp/repo
+            #update: true
+            version: devel
+
+        # There would be other tasks here using the temporary checkout directory...
+
+      always:
+        # Delete the checkout directory.
+        - file:
+            path: /tmp/checkout
+            state: absent
