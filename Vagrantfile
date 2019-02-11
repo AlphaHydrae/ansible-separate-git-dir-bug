@@ -9,6 +9,6 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
-    #ansible.verbose = 'vvvv'
+    ansible.verbose = 'vvvv'
   end
 end
